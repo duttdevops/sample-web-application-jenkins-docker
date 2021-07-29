@@ -10,7 +10,7 @@ agent 'any'
 				}
 		stage('Build Maven'){
 			steps{
-				def mvn=tool name: 'Maven3', type: 'maven'
+				def mvn= "tool name: 'Maven3', type: 'maven' "
 				sh ' ${mvn}/bin/mvn clean package '
 		
 			
