@@ -1,22 +1,10 @@
-pipeline {
-    agent none
-	tools {
-        // Install the Maven version configured as "M3" and add it to the path.
-        maven "Maven3"
-    }
-    stages {
-        stage('scm checkout') {
-            steps {
-		 git branch: 'main', 
-		 url: 'https://github.com/duttdevops/sample-web-application-jenkins-docker.git'
-                
-            }
-        }
-	 stage('build code') {
-            steps {
-	        sh " mvn clean package "  
-                
-            }
-        }
-    }
+node{
+   stage('SCM Checkout'){
+     git branch:'main',url:'https://github.com/duttdevops/sample-web-application-jenkins-docker'
+   }
+   stage('Build'){
+      // declaring maven home path
+      def mvnHome =  tool name: 'maven3', type: 'maven'
+      sh "${mvnHome}/bin/mvn clean package"
+   }
 }
