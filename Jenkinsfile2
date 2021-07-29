@@ -16,7 +16,7 @@ node{
    stage('docker pull'){
    sh "docker login -u 'duttdevops' -p 'Gr3yf@!c0n'"
    sh 'docker pull duttdevops/ksd:latest'
-   sh 'docker run -d -p 8082:8080 duttdevops/ksd:latest'
+   sh 'docker run -d -p 8082:8080 duttdevops/ksd:latest /bin/bash'
    }
    stage('deploy to tomcat'){
    sh " sudo cp -r /var/lib/jenkins/workspace/sample-docker-mvn-2/target/WebApp.war /opt/tomcat/webapps/ "
