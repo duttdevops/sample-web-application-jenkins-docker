@@ -3,13 +3,13 @@ agent 'any'
 	
 	stages{
 		stage('SCM Checkout'){
-			steps{
+			step{
 			git branch: 'main', 
 			url: 'https://github.com/duttdevops/sample-web-application-jenkins-docker.git'
 			}
 				}
 		stage('Build Maven'){
-			steps{
+			step{
 				def mvn= tool name: 'Maven3', type: 'maven'
 				sh " ${mvn}/bin/mvn clean package "
 		
