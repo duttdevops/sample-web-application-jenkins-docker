@@ -1,5 +1,9 @@
 pipeline {
     agent none
+	tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "Maven3"
+    }
     stages {
         stage('scm checkout') {
             steps {
@@ -10,8 +14,7 @@ pipeline {
         }
 	 stage('build code') {
             steps {
-		 def mvnhome =tool name: 'Maven3', type: 'maven'
-	         sh "${mvnhome}/bin/mvn clean package"  
+	        sh " mvn clean package "  
                 
             }
         }
