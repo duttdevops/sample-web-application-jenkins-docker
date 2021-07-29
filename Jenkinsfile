@@ -8,7 +8,7 @@ node{
       sh "${mvnHome}/bin/mvn clean package"
    }
    stage('docker push'){
-   sh 'docker build -t webapp:latest .'
+   sh 'docker build -t duttdevops/ksd:latest .'
    sh "docker login -u 'duttdevops' -p 'Gr3yf@!c0n'"
    sh 'docker push duttdevops/ksd:latest'
    }
