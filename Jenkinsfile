@@ -15,5 +15,5 @@ node{
    stage('docker pull')
    sh "docker login -u 'duttdevops' -p 'Gr3yf@!c0n'"
    sh 'docker pull duttdevops/ksd:latest'
-   sh 'docker run -it duttdevops/ksd:latest -p 8082:8080'
+   sh 'docker run -d duttdevops/ksd:latest -p 8082:8080'
 }
