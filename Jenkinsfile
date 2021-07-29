@@ -1,10 +1,10 @@
 pipeline {
-    agent {'any'} 
+    agent none
     stages {
         stage('scm checkout') {
             steps {
-		    git branch: 'main', 
-			url: 'https://github.com/duttdevops/sample-web-application-jenkins-docker.git'
+		 git branch: 'main', 
+		 url: 'https://github.com/duttdevops/sample-web-application-jenkins-docker.git'
                 
             }
         }
