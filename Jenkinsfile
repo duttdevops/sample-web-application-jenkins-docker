@@ -10,6 +10,6 @@ node{
    stage('docker push'){
    sh 'docker build -t webapp:latest .'
    sh "docker login -u 'duttdevops' -p 'Gr3yf@!c0n'"
-   sh 'docker push webapp:latest'
+   sh 'docker push duttdevops/ksd:latest'
    }
 }
