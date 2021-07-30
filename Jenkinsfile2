@@ -1,4 +1,4 @@
-node{
+node('prod'){
  stage('scm checkout'){
    git branch: 'main', changelog: false, poll: false, url: 'https://github.com/duttdevops/sample-web-application-jenkins-docker.git'
  }
@@ -13,12 +13,12 @@ node{
    sh "docker login -u 'duttdevops' -p 'Gr3yf@!c0n'"
    sh 'docker push duttdevops/ksd:latest'
    }
-   stage('docker pull'){
+  stage('docker pull'){
    sh "docker login -u 'duttdevops' -p 'Gr3yf@!c0n'"
    sh 'docker pull duttdevops/ksd:latest'
    sh 'docker run -d -p 8082:8080 duttdevops/ksd:latest /bin/bash'
-   }
-   stage('deploy to tomcat'){
+   } 
+  stage('deploy to tomcat'){
    sh " sudo cp -r /var/lib/jenkins/workspace/sample-docker-mvn-2/target/WebApp.war /opt/tomcat/webapps/ "
    sh " sudo systemctl restart tomcat "
    
