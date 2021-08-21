@@ -1,4 +1,4 @@
-node('prod'){
+pipeline {
  stage('scm checkout'){
    git branch: 'main', changelog: false, poll: false, url: 'https://github.com/duttdevops/sample-web-application-jenkins-docker.git'
  }
